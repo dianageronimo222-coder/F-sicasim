@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de caída libre | Física interactiva</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+<div class="tag">Física · Aprendizaje interactivo</div>
+<h1>Simulador de caída libre</h1>
+<p>Modifica la masa, la altura y la gravedad. Suelta la esfera y observa cómo cambian el movimiento, la velocidad y las energías durante la caída.</p>
+</div></header>
+<main>
+<section class="layout">
+<div class="card controls">
+<div><h2>⚙️ Configura el experimento</h2><p class="hint">Mueve las barras para cambiar los valores.</p></div>
+<div class="control"><label for="mass">Masa <output id="massOut">2.0 kg</output></label><input id="mass" type="range" min="0.5" max="10" step="0.5" value="2"></div>
+<div class="control"><label for="height">Altura <output id="heightOut">20 m</output></label><input id="height" type="range" min="5" max="100" step="1" value="20"></div>
+<div class="control"><label for="gravity">Gravedad <output id="gravityOut">9.8 m/s²</output></label><input id="gravity" type="range" min="1" max="20" step="0.1" value="9.8"></div>
+<div class="control"><label for="progress">Avance de la caída <output id="progressOut">0%</output></label><input id="progress" type="range" min="0" max="100" step="1" value="0"></div>
+<div class="btns"><button id="drop">▶ Soltar esfera</button><button class="secondary" id="pause">Ⅱ Pausar</button><button class="secondary" id="reset">↺ Reiniciar</button></div>
+<p class="hint">Se desprecia la resistencia del aire. La esfera parte del reposo.</p>
+</div>
+<div class="card">
+<h2>🎯 Observa la caída</h2>
+<div class="stage">
+<svg viewBox="0 0 650 290" role="img" aria-label="Animación de una esfera cayendo verticalmente">
+<defs><linearGradient id="ball" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#93c5fd"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs>
+<path d="M0 255 H650" stroke="#64748b" stroke-width="3"/><path d="M70 255 V35" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 6"/>
+<path d="M55 35 H85 M55 255 H85" stroke="#64748b" stroke-width="2"/>
+<text x="95" y="43" fill="#475569" font-size="13">Inicio</text><text x="95" y="251" fill="#475569" font-size="13">Suelo</text>
+<path d="M280 35 V255" stroke="#bfdbfe" stroke-width="2" stroke-dasharray="5 7"/>
+<circle id="ball" cx="280" cy="35" r="17" fill="url(#ball)" stroke="#1e40af" stroke-width="2"/>
+<ellipse id="shadow" cx="280" cy="256" rx="15" ry="4" fill="#94a3b8" opacity=".25"/>
+<text id="heightLabel" x="330" y="150" fill="#1d4ed8" font-size="16" font-weight="700">20 m</text>
+<text x="470" y="55" fill="#64748b" font-size="12">Representación</text><text x="470" y="72" fill="#64748b" font-size="12">del movimiento</text>
+</svg>
+<div class="status"><span id="state">Estado: lista para iniciar</span><span id="timeRead">Tiempo: 0.00 s</span></div>
+</div>
+</div>
+</section>
+<section class="metrics">
+<div class="metric"><span>Velocidad actual</span><strong id="velocity">0.00 m/s</strong></div>
+<div class="metric"><span>Tiempo transcurrido</span><strong id="time">0.00 s</strong></div>
+<div class="metric"><span>Distancia caída</span><strong id="distance">0.00 m</strong></div>
+<div class="metric"><span>Energía mecánica</span><strong id="mechanical">392.00 J</strong></div>
+</section>
+<section class="lower">
+<div class="card"><h2>📈 Energía durante la caída</h2><canvas id="chart" width="600" height="260"></canvas><p class="hint">Energía potencial (azul), cinética (verde) y mecánica (naranja).</p></div>
+<div class="card"><h2>📋 Datos del movimiento</h2><div class="table-wrap"><table><thead><tr><th>Tiempo (s)</th><th>Altura (m)</th><th>Velocidad (m/s)</th><th>Ec (J)</th><th>Ep (J)</th></tr></thead><tbody id="dataRows"></tbody></table></div></div>
+</section>
+<section class="card" style="margin-top:18px">
+<h2>📚 La física detrás del simulador</h2>
+<div class="formulas">
+<div class="formula"><b>Energía potencial</b><code>Ep = m · g · h</code></div>
+<div class="formula"><b>Energía cinética</b><code>Ec = ½ · m · v²</code></div>
+<div class="formula"><b>Energía mecánica</b><code>Em = Ep + Ec</code></div>
+</div>
+<div class="note"><b>¿Qué ocurre?</b> En la caída libre, la gravedad acelera la esfera. A medida que baja, la energía potencial disminuye y la energía cinética aumenta. Si no hay resistencia del aire, la energía mecánica total se conserva.</div>
+</section>
+</main>
+<footer>Proyecto educativo · HTML + CSS + JavaScript · Simulador ideal sin resistencia del aire</footer>
+<script src="script.js"></script>
+</body>
+</html>

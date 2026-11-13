@@ -1,0 +1,7 @@
+SIMULADOR DE CAÍDA LIBRE
+
+Abre index.html en un navegador para usar el simulador.
+Los archivos index.html, style.css y script.js deben permanecer juntos en la misma carpeta.
+
+Puedes cambiar masa, altura y gravedad; iniciar, pausar, reiniciar o mover el control de avance.
+El simulador calcula velocidad, tiempo, distancia y energías potencial, cinética y mecánica.
